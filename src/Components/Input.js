@@ -1,5 +1,3 @@
-//Input react component that gets the dimensions of the board
-
 import React from 'react';
 
 class Input extends React.Component {

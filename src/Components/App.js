@@ -1,7 +1,7 @@
 import './App.css';
-// import Board from './Board';
+import Board from './Board';
 import Input from './Input';
-// import Load from './Load';
+import Load from './Load';
 import React from 'react';
 
 // input fields for dimensions on top, board at the bottom
@@ -9,8 +9,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      rows: 0,
-      columns: 0
+      rows: 4,
+      columns: 4
     }
   }
 
@@ -18,8 +18,8 @@ class App extends React.Component {
     return (
       <div className="App">
         <Input onClick={(i,j) => this.updateDimensions(i,j)}/>
-        {/* <Board/> */}
-        {/* <Load/> */}
+        <Board rows={this.state.rows} columns={this.state.columns}/>
+        <Load/>
       </div>
     );
   }
