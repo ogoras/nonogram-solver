@@ -1,4 +1,5 @@
 import React from 'react';
+import './Input.css';
 
 class Input extends React.Component {
   constructor(props) {
@@ -12,7 +13,7 @@ class Input extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="Input">
         <label>
           Rows:
           <input type="text" name="rows" />
