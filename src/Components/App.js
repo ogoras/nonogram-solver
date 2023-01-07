@@ -19,7 +19,7 @@ class App extends React.Component {
       <div className="App">
         <Input onClick={(i,j) => this.updateDimensions(i,j)}/>
         <Board rows={this.state.rows} columns={this.state.columns}/>
-        <Load/>
+        <Load onClick={(url) => this.loadImage(url)}/>
       </div>
     );
   }
@@ -30,6 +30,19 @@ class App extends React.Component {
       columns: columns
     });
     console.log(rows, columns)
+  }
+
+  loadImage(url) {
+    fetch(url)
+      .then(response => response.blob())
+      .then(blob => {
+        let img = document.createElement('img');
+        img.src = URL.createObjectURL(blob);
+        img.onload = () => {
+          URL.revokeObjectURL(img.src);
+          this.updateDimensions(img.height, img.width);
+        }
+      });
   }
 }
 
